@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "concurrently \"npm run dev\" \"npm run client\"",
+    "server": "node src/index.js",
+    "client": "node src/start-client.js",
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js"
   },
   "keywords": [],
@@ -22,6 +24,7 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "concurrently": "^5.0.0",
     "env-cmd": "^10.0.1",
     "nodemon": "^1.19.4"
   }
